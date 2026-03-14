@@ -33,7 +33,7 @@ python -m cowrie
 Comando utilizado para validar a geração de logs estruturados antes da indexação no SIEM:
 ```tail -f var/log/cowrie/cowrie.json | jq```
 Análise de Ameaças e Dashboards
-Visualização Geral
+###Visualização Geral
 Abaixo, a distribuição de ataques por endereço IP de origem capturados durante o período de monitoramento:
 Classificação de Perfis de Ataque
 Realizei a triagem de 5 perfis distintos de atacantes com base na telemetria coletada:
