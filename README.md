@@ -2,6 +2,26 @@
 Implementação de um Honeypot SSH (Cowrie) hospedado em infraestrutura Oracle Cloud, integrado ao Splunk Enterprise para ingestão, monitoramento e análise forense de ataques reais.
 
 ## Arquitetura do Projeto
+### Visão geral da arquitetura
+
+```
+Internet
+   │
+Attackers / Bots
+   │
+Oracle Cloud Instance (Ubuntu 22.04)
+   │
+SSH Honeypot (Cowrie)
+   │
+JSON Logs (cowrie.json)
+   │
+Splunk Universal Forwarder
+   │
+Splunk Enterprise SIEM
+   │
+Dashboards & Threat Analysis
+```
+
 
 * **Cloud Provider:** Oracle Cloud Infrastructure (OCI) - Instância Ubuntu 22.04 LTS.
 * **Honeypot:** Cowrie (SSH Interaction Honeypot).
@@ -14,6 +34,18 @@ Implementação de um Honeypot SSH (Cowrie) hospedado em infraestrutura Oracle C
 Abaixo, a distribuição de ataques por endereço IP de origem capturados durante o período de monitoramento:
 
 ![Dashboard Geral](dashboard_grafico.png)
+
+### Métricas Consolidadas (Curto período de exposição)
+Principais dados extraídos via Splunk e enriquecidos com ferramentas de OSINT:
+
+| Métrica | Resultado |
+| :--- | :--- |
+| **Total de Ataques Capturados** | +800 eventos |
+| **Período de Coleta** | 13/03/2026 - 14/03/2026 |
+| **Top 3 Países Ofensores** | China, Estados Unidos e Holanda |
+| **Usernames mais visados** | root, admin, orangepi |
+| **Senhas mais tentadas** | orangepi, password, admin |
+
 
 ## Guia de Implementação Técnica. 
 
