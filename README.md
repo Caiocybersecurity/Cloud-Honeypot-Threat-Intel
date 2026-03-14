@@ -8,11 +8,19 @@ Implementação de um Honeypot SSH (Cowrie) hospedado em infraestrutura Oracle C
 * **SIEM: Splunk** Enterprise para centralização de logs e criação de dashboards.
 * **Protocolo de Ingestão:** Monitoramento de arquivos JSON via Splunk Universal Forwarder.
 ---
+## Análise de Ameaças e Dashboards
+
+### Visualização Geral
+Abaixo, a distribuição de ataques por endereço IP de origem capturados durante o período de monitoramento:
+
+![Dashboard Geral](dashboard_grafico.png)
 
 ## Guia de Implementação Técnica. 
 
 ### 1. Configuração do Ambiente (Linux)
 Abaixo,os comandos utilizados para isolamento do ambiente e execução do serviço:
+
+
 
 ```bash
 ## Atualização de pacotes e instalação de dependências
@@ -47,9 +55,19 @@ Realizei a triagem de 5 perfis distintos de atacantes com base na telemetria col
 | **51.158.205.203**   |   Reconnaissance    |   Apenas reconhecimento de serviço e fingerprinting (Scanning).  |     Baixa
 
 ## Evidências Técnicas
-* Tentativa de Transferência de Malware (IP 130.12.180.51)
-* Detecção de SSH Tunneling (IP 45.148.10.121)
-* Monitoramento de Logs Brutos no Host
+#### 1.Tentativa de Transferência de Malware (IP 130.12.180.51)
+![Análise Malware](analise_malware.png)
+
+#### 2.Detecção de SSH Tunneling (IP 45.148.10.121)
+![Análise Tunneling](analise_tunneling.png)
+
+#### 3. Brute Force Persistente (IP 139.87.112.146)
+![Brute Force](analise_bruteforce.png)
+
+#### 3.Monitoramento de Logs Brutos no Host
+![Logs Terminal](terminal_honeypot.png)
+
+
 
 ## Conclusão e Resultados
 O projeto demonstrou a eficácia do uso de Honeypots para coleta de indicadores de comprometimento (IoCs). Através da integração com o Splunk, foi possível categorizar ameaças não apenas por volume, mas por intenção técnica, diferenciando scanners automáticos de invasores ativos.
